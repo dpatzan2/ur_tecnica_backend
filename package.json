@@ -4,9 +4,12 @@
   "description": "",
   "license": "MIT",
   "author": "Diego Patzan",
-  "type": "commonjs",
+  "type": "module",
   "main": "index.js",
   "scripts": {
+    "build": "tsc",
+    "db:migrate": "sequelize-cli db:migrate",
+    "db:migrate:undo": "sequelize-cli db:migrate:undo",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "dependencies": {

@@ -1,0 +1,32 @@
+
+SET NAMES utf8mb4;
+SET FOREIGN_KEY_CHECKS = 0;
+
+CREATE DATABASE IF NOT EXISTS ur_tecnica
+  CHARACTER SET utf8mb4
+  COLLATE utf8mb4_unicode_ci;
+
+DROP TABLE IF EXISTS estudiantes;
+DROP TABLE IF EXISTS carreras;
+
+SET FOREIGN_KEY_CHECKS = 1;
+
+CREATE TABLE carreras (
+  id INT NOT NULL AUTO_INCREMENT,
+  nombre VARCHAR(255) NOT NULL,
+  PRIMARY KEY (id)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+CREATE TABLE estudiantes (
+  id INT NOT NULL AUTO_INCREMENT,
+  nombre VARCHAR(255) NOT NULL,
+  apellido VARCHAR(255) NOT NULL,
+  email VARCHAR(255) NOT NULL,
+  fecha_nacimiento DATE NULL,
+  carrera_id INT NOT NULL,
+  PRIMARY KEY (id),
+  CONSTRAINT fk_estudiantes_carrera
+    FOREIGN KEY (carrera_id) REFERENCES carreras (id)
+    ON UPDATE CASCADE
+    ON DELETE RESTRICT
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
