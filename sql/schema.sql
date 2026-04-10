@@ -6,6 +6,8 @@ CREATE DATABASE IF NOT EXISTS ur_tecnica
   CHARACTER SET utf8mb4
   COLLATE utf8mb4_unicode_ci;
 
+USE ur_tecnica;
+
 DROP TABLE IF EXISTS estudiantes;
 DROP TABLE IF EXISTS carreras;
 
